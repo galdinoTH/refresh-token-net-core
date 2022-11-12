@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace RefreshToken;
 
@@ -41,5 +42,12 @@ public class UserLogin
     [Required(ErrorMessage = "The {0} is required")]
     [StringLength(100, ErrorMessage = "The {0} must have between {2} and {1} characters", MinimumLength = 6)]
     public string? Password { get; set; }
+}
+
+public class Token
+{
+    [Required]
+    [JsonPropertyName("refresh-token")]
+    public string? RefreshToken { get; set; }
 }
 
