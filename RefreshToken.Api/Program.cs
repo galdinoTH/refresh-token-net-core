@@ -40,6 +40,8 @@ IdentityModelEventSource.ShowPII = true;
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
+
+#region Documentation
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo
@@ -74,6 +76,7 @@ builder.Services.AddSwaggerGen(c =>
         }
     });
 });
+#endregion
 
 var app = builder.Build();
 app.UseAuthentication();
@@ -87,7 +90,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-
+#region Static Methods
 static async Task<string> GenerateAccessToken(UserManager<IdentityUser> userManager, IJwtService jwtService, string? email)
 {
     var user = await userManager.FindByEmailAsync(email);
@@ -117,7 +120,6 @@ static async Task<string> GenerateAccessToken(UserManager<IdentityUser> userMana
     var encodedJwt = handler.WriteToken(securityToken);
     return encodedJwt;
 }
-
 
 static async Task<string> GenerateRefreshToken(UserManager<IdentityUser> userManager, IJwtService jwtService, string? email)
 {
@@ -163,6 +165,9 @@ static async Task UpdateLastGeneratedClaim(UserManager<IdentityUser> userManager
 
 }
 
+#endregion
+
+#region Controllers
 app.MapPost("/accounts", [AllowAnonymous] async (
         UserManager<IdentityUser> userManager,
         UserRegister registerUser) =>
@@ -270,5 +275,7 @@ app.MapGet("/protected-endpoint", [Authorize] (IHttpContextAccessor context) =>
 {
     return Results.Ok(context.HttpContext?.User.Claims.Select(s => new { s.Type, s.Value }));
 });
+
+#endregion
 
 app.Run();
