@@ -12,6 +12,8 @@ using NetDevPack.Security.Jwt.AspNetCore;
 using NetDevPack.Security.Jwt.Core;
 using NetDevPack.Security.Jwt.Core.Interfaces;
 using RefreshToken;
+using RefreshToken.Domain.Entity;
+using RefreshToken.Infrastructure.Contexts;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using JwtRegisteredClaimNames = System.IdentityModel.Tokens.Jwt.JwtRegisteredClaimNames;

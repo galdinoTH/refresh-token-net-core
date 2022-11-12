@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace RefreshToken;
+namespace RefreshToken.Infrastructure.Contexts;
 
 public class RefreshTokenContext : IdentityDbContext
 {

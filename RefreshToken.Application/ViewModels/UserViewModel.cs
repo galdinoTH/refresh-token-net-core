@@ -1,6 +1,5 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.Text.Json.Serialization;
 
 namespace RefreshToken;
 
@@ -44,9 +43,3 @@ public class UserLogin
     public string? Password { get; set; }
 }
 
-public class Token
-{
-    [Required]
-    [JsonPropertyName("refresh-token")]
-    public string? RefreshToken { get; set; }
-}

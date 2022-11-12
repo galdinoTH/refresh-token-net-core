@@ -20,6 +20,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\RefreshToken.Application\RefreshToken.Application.csproj" />
+    <ProjectReference Include="..\RefreshToken.Domain\RefreshToken.Domain.csproj" />
     <ProjectReference Include="..\RefreshToken.Infrastructure\RefreshToken.Infrastructure.csproj" />
   </ItemGroup>
 
