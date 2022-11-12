@@ -1,11 +1,30 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using RefreshToken.Domain.Exceptions.Common;
+using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
 namespace RefreshToken.Domain.Entity;
 
-public class Token
+public class Token : BaseEntity
 {
-    [Required]
+    private Token() { }
+
+    public Token(string token)
+    {
+        this.SetToken(token);
+    }
+
     [JsonPropertyName("refresh-token")]
-    public string? RefreshToken { get; set; }
+    public string? RefreshToken { get; private set; }
+
+    public void SetToken(string token)
+    {
+        if (!string.IsNullOrEmpty(token))
+        {
+            this.RefreshToken = token;
+        }
+        else
+        {
+            throw new TokenCannotBeNullException();
+        }
+    }
 }
