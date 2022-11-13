@@ -20,6 +20,10 @@ public class UserLoginResponse
 
 public class UserRegister
 {
+
+    [Required(ErrorMessage = "The {0} is required")]
+    public string? UserName { get; set; }
+
     [Required(ErrorMessage = "The {0} is required")]
     [EmailAddress(ErrorMessage = "The {0} is in a incorrect format")]
     public string? Email { get; set; }

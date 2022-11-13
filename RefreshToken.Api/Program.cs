@@ -183,7 +183,7 @@ app.MapPost("/accounts", [AllowAnonymous] async (
         {
             UserName = registerUser.Email,
             Email = registerUser.Email,
-            EmailConfirmed = true
+            EmailConfirmed = true,
         };
 
         var result = await userManager.CreateAsync(user, registerUser.Password);

@@ -1,10 +1,11 @@
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using RefreshToken.Infrastructure.Mappings;
 
 namespace RefreshToken.Infrastructure.Contexts;
 
-public class RefreshTokenContext : DbContext
+public class RefreshTokenContext : IdentityDbContext
 {
     private readonly IConfiguration _config;
 
