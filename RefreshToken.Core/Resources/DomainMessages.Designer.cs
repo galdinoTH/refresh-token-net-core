@@ -68,5 +68,14 @@ namespace RefreshToken.Core.Resources {
                 return ResourceManager.GetString("Token_CannotBeNull", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Usuário não pode ser adicionado..
+        /// </summary>
+        public static string User_CannotBeAdd {
+            get {
+                return ResourceManager.GetString("User_CannotBeAdd", resourceCulture);
+            }
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using RefreshToken.Domain.Exceptions.Common;
+using System.Text.RegularExpressions;
 
 namespace RefreshToken.Domain.Entity
 {
@@ -32,6 +33,22 @@ namespace RefreshToken.Domain.Entity
         public void SetPassword(string password)
         {
             this.Password = password;
+        }
+
+        public User AddUser(string name, string email, string password) 
+        {
+            User returnValue;
+
+            if(name is not null && email is not null && password is not null) 
+            {
+                returnValue = new User(String.Empty, name, email, password);
+            }
+            else 
+            {
+                throw new UserCannotAddException();
+            }
+            
+            return returnValue;  
         }
     }
 }

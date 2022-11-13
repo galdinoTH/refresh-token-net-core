@@ -120,4 +120,7 @@
   <data name="Token_CannotBeNull" xml:space="preserve">
     <value>Token não pode ser nulo.</value>
   </data>
+  <data name="User_CannotBeAdd" xml:space="preserve">
+    <value>Usuário não pode ser adicionado.</value>
+  </data>
 </root>

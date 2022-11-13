@@ -10,4 +10,9 @@
     <ProjectReference Include="..\RefreshToken.Core\RefreshToken.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Repositories\" />
+    <Folder Include="Services\" />
+  </ItemGroup>
+
 </Project>

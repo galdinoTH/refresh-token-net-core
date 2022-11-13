@@ -92,7 +92,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 #region Static Methods
-static async Task<string> GenerateAccessToken(UserManager<IdentityUser> userManager, IJwtService jwtService, string email)
+static async Task<string> GenerateAccessToken(UserManager<IdentityUser> userManager, IJwtService jwtService, string? email)
 {
     var user = await userManager.FindByEmailAsync(email);
     var userRoles = await userManager.GetRolesAsync(user);
@@ -122,7 +122,7 @@ static async Task<string> GenerateAccessToken(UserManager<IdentityUser> userMana
     return encodedJwt;
 }
 
-static async Task<string> GenerateRefreshToken(UserManager<IdentityUser> userManager, IJwtService jwtService, string email)
+static async Task<string> GenerateRefreshToken(UserManager<IdentityUser> userManager, IJwtService jwtService, string? email)
 {
     var jti = Guid.NewGuid().ToString();
     var claims = new List<Claim>
@@ -152,7 +152,7 @@ static async Task<string> GenerateRefreshToken(UserManager<IdentityUser> userMan
     return encodedJwt;
 }
 
-static async Task UpdateLastGeneratedClaim(UserManager<IdentityUser> userManager, string email, string jti)
+static async Task UpdateLastGeneratedClaim(UserManager<IdentityUser> userManager, string? email, string jti)
 {
     var user = await userManager.FindByEmailAsync(email);
     var claims = await userManager.GetClaimsAsync(user);
