@@ -1,4 +1,4 @@
-﻿namespace RefreshToken.Domain.Entity;
+﻿namespace RefreshToken.Core.Crosscutting.Base;
 
 public abstract class BaseEntity : IEntity
 {

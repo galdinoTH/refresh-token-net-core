@@ -20,38 +20,59 @@ public class UserLoginResponse
 
 public class UserRegister
 {
+    public UserRegister(string firstName, string lastName, string email, string password, string confirmPassword)
+    {
+        FirstName = firstName;
+        LastName = lastName;
+        Email = email;
+        Password = password;
+        ConfirmPassword = confirmPassword;
+    }
+    [Required(ErrorMessage = "The {0} is required")]
+    public string FirstName { get; set; }
 
     [Required(ErrorMessage = "The {0} is required")]
-    public string? UserName { get; set; }
+    public string LastName { get; set; }
 
     [Required(ErrorMessage = "The {0} is required")]
     [EmailAddress(ErrorMessage = "The {0} is in a incorrect format")]
-    public string? Email { get; set; }
+    public string Email { get; set; }
 
     [Required(ErrorMessage = "The {0} is required")]
     [StringLength(100, ErrorMessage = "The {0} must have between {2} and {1} characters", MinimumLength = 6)]
-    public string? Password { get; set; }
+    public string Password { get; set; }
 
     [DisplayName("Confirm Password")]
     [Compare("Password", ErrorMessage = "The passwords doesn't match.")]
-    public string? ConfirmPassword { get; set; }
+    public string ConfirmPassword { get; set; }
 }
 
 public class UserLogin
 {
+    public UserLogin(string email, string password)
+    {
+        Email = email;
+        Password = password;
+    }
+
     [Required(ErrorMessage = "The {0} is required")]
     [EmailAddress(ErrorMessage = "The {0} is in a incorrect format")]
-    public string? Email { get; set; }
+    public string Email { get; set; }
 
     [Required(ErrorMessage = "The {0} is required")]
     [StringLength(100, ErrorMessage = "The {0} must have between {2} and {1} characters", MinimumLength = 6)]
-    public string? Password { get; set; }
+    public string Password { get; set; }
 }
 
 public class Token
 {
+    public Token(string refreshToken)
+    {
+        RefreshToken = refreshToken;
+    }
+
     [Required]
     [JsonPropertyName("refresh-token")]
-    public string? RefreshToken { get; set; }
+    public string RefreshToken { get; set; }
 }
 

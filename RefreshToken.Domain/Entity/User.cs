@@ -1,4 +1,5 @@
-﻿using RefreshToken.Domain.Exceptions.Common;
+﻿using RefreshToken.Core.Crosscutting.Base;
+using RefreshToken.Domain.Exceptions.Common;
 using System.Text.RegularExpressions;
 
 namespace RefreshToken.Domain.Entity
