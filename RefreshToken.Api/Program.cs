@@ -19,7 +19,10 @@ using JwtRegisteredClaimNames = System.IdentityModel.Tokens.Jwt.JwtRegisteredCla
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddDbContext<RefreshTokenContext>(options => options.UseInMemoryDatabase("RT"));
+builder.Services.AddDbContext<RefreshTokenContext>
+    (options => options.UseNpgsql(builder.Configuration.GetConnectionString("postgres")));
+
+//builder.Services.AddDbContext<RefreshTokenContext>(options => options.UseInMemoryDatabase("RT"));
 builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<RefreshTokenContext>().AddDefaultTokenProviders();
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
