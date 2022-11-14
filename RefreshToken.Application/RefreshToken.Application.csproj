@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\RefreshToken.Core\RefreshToken.Core.csproj" />
+    <ProjectReference Include="..\RefreshToken.Infrastructure\RefreshToken.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>
