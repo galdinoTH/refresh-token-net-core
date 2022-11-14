@@ -4,6 +4,8 @@ using RefreshToken.Infrastructure.Contexts;
 
 namespace RefreshTokenTemplate.Application.Services;
 
+//TODO: Implementar service
+/*
 public class UserApplicationService : BaseService<RefreshTokenContext>, IUserApplicationService
 {
     public UserApplicationService(IMediatorHandler mediatorHandler)
@@ -16,3 +18,4 @@ public class UserApplicationService : BaseService<RefreshTokenContext>, IUserApp
         throw new NotImplementedException();
     }
 }
+*/
