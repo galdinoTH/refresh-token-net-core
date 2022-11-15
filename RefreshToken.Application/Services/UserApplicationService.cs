@@ -1,15 +1,16 @@
 ﻿using RefreshToken.Application.Services.Interfaces;
 using RefreshToken.Application.ViewModels;
+using RefreshToken.Core.Crosscutting.Domain.ApplicationServices;
+using RefreshToken.Core.Crosscutting.Domain.Bus;
+using RefreshToken.Core.Crosscutting.Domain.UnitOfWork;
 using RefreshToken.Infrastructure.Contexts;
 
-namespace RefreshTokenTemplate.Application.Services;
+namespace RefreshToken.Application.Services;
 
-//TODO: Implementar service
-/*
 public class UserApplicationService : BaseService<RefreshTokenContext>, IUserApplicationService
 {
-    public UserApplicationService(IMediatorHandler mediatorHandler)
-    : base(mediatorHandler)
+    public UserApplicationService(IMediatorHandler mediatorHandler, IUnitOfWork<RefreshTokenContext> unitOfWork)
+    : base(mediatorHandler, unitOfWork)
     {
     }
 
@@ -18,4 +19,4 @@ public class UserApplicationService : BaseService<RefreshTokenContext>, IUserApp
         throw new NotImplementedException();
     }
 }
-*/
+
